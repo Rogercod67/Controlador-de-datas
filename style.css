@@ -1,0 +1,540 @@
+/* ==========================
+   RESET
+========================== */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Arial, Helvetica, sans-serif;
+    background: #f5f7fa;
+    color: #333;
+}
+
+/* ==========================
+   HEADER
+========================== */
+
+.header {
+    background: #ffffff;
+    padding: 20px 40px;
+    border-bottom: 1px solid #ddd;
+}
+
+.header h1 {
+    font-size: 28px;
+    font-weight: 600;
+    color: #1f2937;
+}
+
+/* ==========================
+   CONTAINER
+========================== */
+
+.container {
+    width: 90%;
+    max-width: 1200px;
+    margin: 30px auto;
+}
+
+/* ==========================
+   TOOLBAR
+========================== */
+
+.toolbar {
+    display: flex;
+    justify-content: space-between;
+    gap: 15px;
+    margin-bottom: 25px;
+}
+
+.toolbar input {
+    flex: 1;
+    padding: 12px;
+    border: 1px solid #d6d6d6;
+    border-radius: 8px;
+    font-size: 16px;
+}
+
+.toolbar button {
+    background: #2563eb;
+    color: white;
+    border: none;
+    padding: 12px 20px;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: .2s;
+}
+
+.toolbar button:hover {
+    background: #1d4ed8;
+}
+
+/* ==========================
+   CARDS
+========================== */
+
+.cards {
+    display: flex;
+    gap: 20px;
+    margin-bottom: 25px;
+}
+
+.card {
+    flex: 1;
+    background: white;
+    border-radius: 10px;
+    padding: 20px;
+    box-shadow: 0 2px 8px rgba(0,0,0,.05);
+}
+
+.card h3 {
+    font-size: 15px;
+    color: #666;
+    margin-bottom: 10px;
+}
+
+.card span {
+    font-size: 32px;
+    font-weight: bold;
+}
+
+.em-dia {
+    border-left: 6px solid #22c55e;
+}
+
+.proximos {
+    border-left: 6px solid #f59e0b;
+}
+
+.vencidos {
+    border-left: 6px solid #ef4444;
+}
+
+.total {
+    border-left: 6px solid #2563eb;
+}
+
+/* ==========================
+   FILTROS
+========================== */
+
+.filtros {
+    display: flex;
+    gap: 10px;
+    margin-bottom: 25px;
+}
+
+.filtros button {
+    background: white;
+    border: 1px solid #ddd;
+    padding: 10px 16px;
+    border-radius: 6px;
+    cursor: pointer;
+    transition: .2s;
+}
+
+.filtros button:hover {
+    background: #2563eb;
+    color: white;
+}
+
+/* ==========================
+   TABELA
+========================== */
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+    background: white;
+    border-radius: 10px;
+    overflow: hidden;
+}
+
+thead {
+    background: #2563eb;
+    color: white;
+}
+
+th,
+td {
+    padding: 15px;
+    text-align: center;
+}
+
+tbody tr {
+    border-bottom: 1px solid #eee;
+}
+
+tbody tr:hover {
+    background: #f8fafc;
+}
+
+td button {
+    padding: 7px 12px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    margin: 2px;
+}
+
+td button:first-child {
+    background: #2563eb;
+    color: white;
+}
+
+td button:last-child {
+    background: #ef4444;
+    color: white;
+}
+/* ==========================
+   RESET
+========================== */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Arial, Helvetica, sans-serif;
+    background: #f5f7fa;
+    color: #333;
+}
+
+/* ==========================
+   HEADER
+========================== */
+
+.header {
+    background: #ffffff;
+    padding: 20px 40px;
+    border-bottom: 1px solid #ddd;
+}
+
+.header h1 {
+    font-size: 28px;
+    font-weight: 600;
+    color: #1f2937;
+}
+
+/* ==========================
+   CONTAINER
+========================== */
+
+.container {
+    width: 90%;
+    max-width: 1200px;
+    margin: 30px auto;
+}
+
+/* ==========================
+   TOOLBAR
+========================== */
+
+.toolbar {
+    display: flex;
+    justify-content: space-between;
+    gap: 15px;
+    margin-bottom: 25px;
+}
+
+.toolbar input {
+    flex: 1;
+    padding: 12px;
+    border: 1px solid #d6d6d6;
+    border-radius: 8px;
+    font-size: 16px;
+}
+
+.toolbar button {
+    background: #2563eb;
+    color: white;
+    border: none;
+    padding: 12px 20px;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: .2s;
+}
+
+.toolbar button:hover {
+    background: #1d4ed8;
+}
+
+/* ==========================
+   CARDS
+========================== */
+
+.cards {
+    display: flex;
+    gap: 20px;
+    margin-bottom: 25px;
+}
+
+.card {
+    flex: 1;
+    background: white;
+    border-radius: 10px;
+    padding: 20px;
+    box-shadow: 0 2px 8px rgba(0,0,0,.05);
+}
+
+.card h3 {
+    font-size: 15px;
+    color: #666;
+    margin-bottom: 10px;
+}
+
+.card span {
+    font-size: 32px;
+    font-weight: bold;
+}
+
+.em-dia {
+    border-left: 6px solid #22c55e;
+}
+
+.proximos {
+    border-left: 6px solid #f59e0b;
+}
+
+.vencidos {
+    border-left: 6px solid #ef4444;
+}
+
+.total {
+    border-left: 6px solid #2563eb;
+}
+
+/* ==========================
+   FILTROS
+========================== */
+
+.filtros {
+    display: flex;
+    gap: 10px;
+    margin-bottom: 25px;
+}
+
+.filtros button {
+    background: white;
+    border: 1px solid #ddd;
+    padding: 10px 16px;
+    border-radius: 6px;
+    cursor: pointer;
+    transition: .2s;
+}
+
+.filtros button:hover {
+    background: #2563eb;
+    color: white;
+}
+
+.filtros button.filtro-ativo {
+    background: #2563eb;
+    color: white;
+    border-color: #2563eb;
+}
+
+/* ==========================
+   TABELA
+========================== */
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+    background: white;
+    border-radius: 10px;
+    overflow: hidden;
+}
+
+thead {
+    background: #2563eb;
+    color: white;
+}
+
+th,
+td {
+    padding: 15px;
+    text-align: center;
+}
+
+tbody tr {
+    border-bottom: 1px solid #eee;
+}
+
+tbody tr:hover {
+    background: #f8fafc;
+}
+
+td button {
+    padding: 7px 12px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    margin: 2px;
+}
+
+td button:first-child {
+    background: #2563eb;
+    color: white;
+}
+
+td button:last-child {
+    background: #ef4444;
+    color: white;
+}
+
+/* ==========================
+   STATUS (badges na tabela)
+========================== */
+
+.status {
+    display: inline-block;
+    padding: 5px 12px;
+    border-radius: 20px;
+    font-size: 13px;
+    font-weight: 600;
+    color: white;
+}
+
+.status-em-dia {
+    background: #22c55e;
+}
+
+.status-próximo {
+    background: #f59e0b;
+}
+
+.status-vencido {
+    background: #ef4444;
+}
+
+/* ==========================
+   ALERTAS
+========================== */
+
+.alertas {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    margin-bottom: 25px;
+}
+
+.alerta {
+    padding: 14px 18px;
+    border-radius: 8px;
+    font-size: 14px;
+    font-weight: 500;
+    box-shadow: 0 2px 8px rgba(0,0,0,.05);
+}
+
+.alerta-vencido {
+    background: #fef2f2;
+    color: #b91c1c;
+    border-left: 6px solid #ef4444;
+}
+
+.alerta-proximo {
+    background: #fffbeb;
+    color: #b45309;
+    border-left: 6px solid #f59e0b;
+}
+
+/* ==========================
+   MODAL (Cadastro / Edição)
+========================== */
+
+.modal-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, .45);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 1000;
+}
+
+.modal {
+    background: white;
+    border-radius: 10px;
+    padding: 30px;
+    width: 90%;
+    max-width: 420px;
+    box-shadow: 0 2px 8px rgba(0,0,0,.05);
+}
+
+.modal h2 {
+    font-size: 20px;
+    font-weight: 600;
+    color: #1f2937;
+    margin-bottom: 20px;
+}
+
+.modal form {
+    display: flex;
+    flex-direction: column;
+    gap: 14px;
+}
+
+.modal label {
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+    font-size: 14px;
+    color: #666;
+}
+
+.modal input {
+    padding: 12px;
+    border: 1px solid #d6d6d6;
+    border-radius: 8px;
+    font-size: 16px;
+    font-family: inherit;
+}
+
+.modal input:focus {
+    outline: none;
+    border-color: #2563eb;
+}
+
+.modal-botoes {
+    display: flex;
+    justify-content: flex-end;
+    gap: 10px;
+    margin-top: 6px;
+}
+
+.modal-botoes button {
+    padding: 12px 20px;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    font-size: 15px;
+    transition: .2s;
+}
+
+.modal-botoes button[type="submit"] {
+    background: #2563eb;
+    color: white;
+}
+
+.modal-botoes button[type="submit"]:hover {
+    background: #1d4ed8;
+}
+
+.modal-botoes button[type="button"] {
+    background: #f1f5f9;
+    color: #333;
+}
+
+.modal-botoes button[type="button"]:hover {
+    background: #e2e8f0;
+}

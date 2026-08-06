@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Controle de Validades</title>
+
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+    <header class="header">
+        <h1>🧊 Controle de Validades</h1>
+    </header>
+
+    <main class="container">
+
+        <!-- Alertas -->
+        <section id="alertas" class="alertas"></section>
+
+        <!-- Pesquisa e Botão -->
+        <section class="toolbar">
+
+            <input
+                type="text"
+                id="pesquisa"
+                placeholder="Pesquisar produto...">
+
+            <button id="btnNovoProduto">
+                + Novo Produto
+            </button>
+
+        </section>
+
+        <!-- Cards -->
+        <section class="cards">
+
+            <div class="card em-dia">
+                <h3>Em dia</h3>
+                <span id="totalEmDia">0</span>
+            </div>
+
+            <div class="card proximos">
+                <h3>Próximos</h3>
+                <span id="totalProximos">0</span>
+            </div>
+
+            <div class="card vencidos">
+                <h3>Vencidos</h3>
+                <span id="totalVencidos">0</span>
+            </div>
+
+            <div class="card total">
+                <h3>Total</h3>
+                <span id="totalProdutos">0</span>
+            </div>
+
+        </section>
+
+        <!-- Filtros -->
+        <section class="filtros">
+
+            <button data-filtro="Todos" class="filtro-ativo">Todos</button>
+            <button data-filtro="Em dia">Em dia</button>
+            <button data-filtro="Próximo">Próximos</button>
+            <button data-filtro="Vencido">Vencidos</button>
+
+        </section>
+
+        <!-- Tabela -->
+        <section class="tabela">
+
+            <table>
+
+                <thead>
+
+                    <tr>
+                        <th>Produto</th>
+                        <th>Marca</th>
+                        <th>Lote</th>
+                        <th>Validade</th>
+                        <th>Quantidade</th>
+                        <th>Status</th>
+                        <th>Ações</th>
+                    </tr>
+
+                </thead>
+
+                <tbody id="listaProdutos">
+                </tbody>
+
+            </table>
+
+        </section>
+
+    </main>
+
+    <!-- Modal de Cadastro / Edição -->
+    <div id="modalOverlay" class="modal-overlay" style="display:none;">
+        <div class="modal">
+
+            <h2 id="modalTitulo">Novo Produto</h2>
+
+            <form id="formProduto">
+
+                <label>
+                    Produto
+                    <input type="text" id="inputNome" required>
+                </label>
+
+                <label>
+                    Marca
+                    <input type="text" id="inputMarca" required>
+                </label>
+
+                <label>
+                    Lote
+                    <input type="text" id="inputLote" required>
+                </label>
+
+                <label>
+                    Validade (dd/mm/aaaa)
+                    <input type="text" id="inputValidade" placeholder="dd/mm/aaaa" required>
+                </label>
+
+                <label>
+                    Quantidade
+                    <input type="number" id="inputQuantidade" min="0" required>
+                </label>
+
+                <div class="modal-botoes">
+                    <button type="submit">Salvar</button>
+                    <button type="button" id="btnCancelar">Cancelar</button>
+                </div>
+
+            </form>
+
+        </div>
+    </div>
+
+    <script src="func.js"></script>
+
+</body>
+
+</html>
