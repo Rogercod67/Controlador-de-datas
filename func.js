@@ -1,33 +1,22 @@
 // Banco temporário (depois será substituído pelo PostgreSQL)
-let produtos = [
+let produtos = [];
 
-    {
-        nome: "Suco Uva",
-        marca: "Del Valle",
-        lote: "123456",
-        validade: "15/08/2026",
-        quantidade: 8
-    },
+//Buscar o banco
+async function buscarProdutos() {
 
-    {
-        nome: "Margarina",
-        marca: "Qualy",
-        lote: "845211",
-        validade: "08/08/2026",
-        quantidade: 3
-    },
+    const { data, error } = await supabaseClient
+        .from("Produtos")
+        .select("*");
 
-    {
-        nome: "Leite Integral",
-        marca: "Italac",
-        lote: "778899",
-        validade: "20/09/2026",
-        quantidade: 10
+    if (error) {
+        console.error("Erro ao buscar produtos:", error);
+        return;
     }
 
-];
+    produtos = data;
 
-
+    carregarProdutos();
+}
 // Quantos dias antes do vencimento um produto vira "Próximo"
 const DIAS_LIMITE_PROXIMO = 7;
 
@@ -188,28 +177,76 @@ function fecharModal() {
     indexEditando = null;
 }
 
-function salvarProduto(event) {
+async function salvarProduto(event) {
     event.preventDefault();
 
     const nome = document.getElementById("inputNome").value.trim();
     const marca = document.getElementById("inputMarca").value.trim();
     const lote = document.getElementById("inputLote").value.trim();
     const validade = document.getElementById("inputValidade").value.trim();
-    const quantidade = Number(document.getElementById("inputQuantidade").value);
+    const quantidade = Number(
+        document.getElementById("inputQuantidade").value
+    );
 
-    // Validação simples do formato dd/mm/aaaa
+    // Validação da data
     const formatoValido = /^\d{2}\/\d{2}\/\d{4}$/.test(validade);
+
     if (!formatoValido) {
         alert("Data inválida. Use o formato dd/mm/aaaa.");
         return;
     }
 
-    const produto = { nome, marca, lote, validade, quantidade };
+    const [dia, mes, ano] = validade.split("/");
 
+    const validadeBanco = `${ano}-${mes}-${dia}`;
+
+    const produto = {
+            nome,
+            marca,
+            lote,
+            validade: validadeBanco,
+            quantidade
+        };
+
+    // NOVO PRODUTO
     if (indexEditando === null) {
-        produtos.push(produto);
+
+        const { data, error } = await supabaseClient
+            .from("Produtos")
+            .insert([produto])
+            .select();
+
+        if (error) {
+    console.error("Erro ao cadastrar produto:", error);
+    console.error("Mensagem:", error.message);
+    console.error("Detalhes:", error.details);
+    console.error("Hint:", error.hint);
+    console.error("Código:", error.code);
+
+    alert("Erro ao cadastrar produto.");
+    return;
+}
+
+        produtos.push(data[0]);
+
     } else {
-        produtos[indexEditando] = produto;
+
+        // EDITAR PRODUTO
+        const id = produtos[indexEditando].id;
+
+        const { data, error } = await supabaseClient
+            .from("Produtos")
+            .update(produto)
+            .eq("id", id)
+            .select();
+
+        if (error) {
+            console.error("Erro ao editar produto:", error);
+            alert("Erro ao editar produto.");
+            return;
+        }
+
+        produtos[indexEditando] = data[0];
     }
 
     fecharModal();
@@ -218,7 +255,29 @@ function salvarProduto(event) {
 
 
 // Excluir produto
-function excluirProduto(index) {
+async function excluirProduto(index) {
+
+    const produto = produtos[index];
+
+    const confirmar = confirm(
+        `Deseja excluir o produto "${produto.nome}"?`
+    );
+
+    if (!confirmar) {
+        return;
+    }
+
+    const { error } = await supabaseClient
+        .from("Produtos")
+        .delete()
+        .eq("id", produto.id);
+
+    if (error) {
+        console.error("Erro ao excluir produto:", error);
+        alert("Erro ao excluir produto.");
+        return;
+    }
+
     produtos.splice(index, 1);
     carregarProdutos();
 }
@@ -256,7 +315,15 @@ document.querySelectorAll(".filtros button").forEach(botao => {
         carregarProdutos();
     });
 });
+//Biblioteca supabase
+const SUPABASE_URL = "https://znjvgkbbxbtgnupsxthy.supabase.co";
 
+const SUPABASE_KEY = "sb_publishable_08GEGKb1Xo75XRE6s2_feA_Ob2PAdLT";
+
+const supabaseClient = supabase.createClient(
+    SUPABASE_URL,
+    SUPABASE_KEY
+);
 
 // Inicialização
-carregarProdutos();
+buscarProdutos();
