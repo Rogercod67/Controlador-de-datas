@@ -28,3 +28,10 @@ https://rogercod67.github.io/Controlador-de-datas/
 ## Objetivo
 
 Aplicar na prática conceitos de desenvolvimento web, operações CRUD, integração com banco de dados e versionamento de código utilizando Git e GitHub.
+## Próximas funcionalidades
+
+* Cadastro e armazenamento de fotos dos produtos;
+* Geração de relatórios em PDF;
+* Exportação de registros em CSV;
+* Sistema de usuários e autenticação;
+* Controle de permissões de acesso.
