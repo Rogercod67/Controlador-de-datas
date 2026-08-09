@@ -1,4 +1,4 @@
-// Banco temporário (depois será substituído pelo PostgreSQL)
+
 let produtos = [];
 
 //Buscar o banco
@@ -36,8 +36,17 @@ let indexEditando = null; // null = cadastrando novo | número = editando esse �
 
 // Converte "dd/mm/aaaa" em objeto Date
 function paraData(validade) {
+    if (validade.includes("-")) {
+        const [ano, mes, dia] = validade.split("-").map(Number);
+        return new Date(ano, mes - 1, dia);
+    }
     const [dia, mes, ano] = validade.split("/").map(Number);
     return new Date(ano, mes - 1, dia);
+}
+//Converte aaaa/mm/dd para dd/mm/aaaa
+function formatarData(validade) {
+    const [ano, mes, dia] = validade.split("-");
+    return `${dia}/${mes}/${ano}`;
 }
 
 // Calcula quantos dias faltam (negativo = já venceu)
@@ -86,7 +95,7 @@ function carregarProdutos(lista = produtos) {
             <td>${produto.nome}</td>
             <td>${produto.marca}</td>
             <td>${produto.lote}</td>
-            <td>${produto.validade}</td>
+            <td>${formatarData(produto.validade)}</td>
             <td>${produto.quantidade}</td>
             <td><span class="status status-${status.replace(" ", "-").toLowerCase()}">${status}</span></td>
             <td>
@@ -165,7 +174,7 @@ function abrirModalEditar(index) {
     document.getElementById("inputNome").value = produto.nome;
     document.getElementById("inputMarca").value = produto.marca;
     document.getElementById("inputLote").value = produto.lote;
-    document.getElementById("inputValidade").value = produto.validade;
+    document.getElementById("inputValidade").value = formatarData(produto.validade);
     document.getElementById("inputQuantidade").value = produto.quantidade;
 
     modalOverlay.style.display = "flex";
